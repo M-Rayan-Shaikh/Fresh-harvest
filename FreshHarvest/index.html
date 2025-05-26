@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Harvest - Premium Vegetables</title>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f7;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: #8bc34a;
+            font-weight: 700;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #4a7c59;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d8f3dc;
+        }
+
+        /* Owner Signature */
+        .owner-signature {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2d6a4f;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #8bc34a;
+            margin: 10px auto;
+        }
+
+        /* Products Section */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .tomato {
+            background-image: url(tomatoes.jpeg);
+        }
+
+        .cabbage {
+            background-image: url(cabbage.jpeg);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #2d6a4f;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            color: #8bc34a;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #4a7c59;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #2d6a4f;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+                        url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 4rem 0;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d6a4f;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #d8f3dc;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .owner-signature {
+                position: static;
+                text-align: center;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="home">
+        <div class="owner-signature">Curated by Qasver Ali and M.Rayan Shaikh</div>
+        <h1 class="logo">Fresh <span>Harvest</span></h1>
+        <p class="tagline">Hand-picked, farm-fresh vegetables delivered to your doorstep. Experience the taste of nature's goodness.</p>
+        <a href="#products" class="btn">Shop Now</a>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="products">
+            <h2 class="section-title">Our Fresh Produce</h2>
+            <div class="products">
+                <div class="product-card">
+                    <div class="product-image tomato"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Juicy Tomatoes</h3>
+                        <p class="product-price">$2.99 / lb</p>
+                        <p class="product-description">Vine-ripened, hand-picked tomatoes bursting with flavor. Perfect for salads, sauces, or just eating fresh.</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image cabbage"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Fresh Cabbages</h3>
+                        <p class="product-price">$1.49 / lb</p>
+                        <p class="product-description">Crisp, organic cabbages grown without pesticides. Excellent for coleslaw, stir-fries, or fermenting.</p>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="about-content">
+                <h2 class="section-title">Our Story</h2>
+                <p>At Fresh Harvest, we believe in bringing you the freshest vegetables straight from local farms to your table. Founded with a passion for quality and sustainability, we work directly with farmers who share our commitment to organic, ethical farming practices.</p>
+                <p>Every vegetable is hand-selected for quality, freshness, and taste. We deliver within 24 hours of harvest to ensure you get the most nutritious and flavorful produce possible.</p>
+                <a href="#" class="btn" style="margin-top: 1.5rem;">Learn More</a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-logo">Fresh Harvest</div>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>Bahria University, Islamabad</p>
+        <p>qasvertroop@gmail.com | 03360539539</p>
+        <P>mrayan2412@gmail.com | 03188330202</P>
+        <p class="copyright">© 2025 Fresh Harvest. All rights reserved.</p>
+    </footer>
+</body>
+</html>
